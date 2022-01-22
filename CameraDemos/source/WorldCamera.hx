@@ -28,7 +28,7 @@ class WorldCamera extends FlxCamera
 		scroll.x = 0;
 		scroll.y = 0;
 		zoom = initialZoom;
-		focusOn(new FlxPoint(worldWidth / 2.0, worldHeight / 3.0));
+		focusOn(new FlxPoint(worldWidth / 2.0, worldHeight / 2.0));
 	}
 
 	// Uncomment and implement resize code if necessary

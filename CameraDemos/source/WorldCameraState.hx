@@ -4,6 +4,7 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.addons.display.FlxSpriteAniRot;
 import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
@@ -51,7 +52,9 @@ class WorldCameraState extends FlxState
 		var worldCamera = new WorldCamera(wcX, wcY - wcHeight, wcWidth, 2 * wcHeight, worldWidth, worldHeight);
 
 		// Add camera to world
-		FlxG.cameras.add(worldCamera);
+		// If you change the second argument to false then FlxBasics added to the FlxState will not be rendered
+		// on this camera.
+		FlxG.cameras.add(worldCamera, true);
 
 		// Add a block the worldCamera
 		// This just demostrates the effect of adding a block to the world camera only.
@@ -102,28 +105,22 @@ class WorldCameraState extends FlxState
 
 		if (FlxG.keys.pressed.LEFT)
 		{
-			// originalCamera.scroll.x -= 10;
 			block.x -= 10;
 		}
 		if (FlxG.keys.pressed.RIGHT)
 		{
-			// originalCamera.scroll.x += 10;
 			block.x += 10;
 		}
 		if (FlxG.keys.pressed.UP)
 		{
-			// originalCamera.scroll.y -= 10;
 			block.y -= 10;
 		}
 		if (FlxG.keys.pressed.DOWN)
 		{
-			// originalCamera.scroll.y += 10;
 			block.y += 10;
 		}
 		if (FlxG.keys.pressed.HOME)
 		{
-			// originalCamera.scroll.x = 0;
-			// originalCamera.scroll.y = 0;
 			block.x = 0;
 			block.y = 0;
 		}
