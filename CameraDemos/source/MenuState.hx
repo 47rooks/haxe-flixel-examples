@@ -11,7 +11,7 @@ class MenuState extends FlxState
 {
 	static final LEFT_X = 10;
 	static final TOP_Y = 20;
-	static final LINE_Y = 60;
+	static final LINE_Y = 90;
 	static final TITLE_Y = 80;
 	static final DESC_X = 140;
 	static final TEXT_LENGTH = 450;
@@ -22,6 +22,7 @@ class MenuState extends FlxState
 
 	override public function create()
 	{
+		trace('creating menu state');
 		super.create();
 
 		// Set the font, rather globally
@@ -56,9 +57,27 @@ class MenuState extends FlxState
 		},
 			"A camera which shows user information at the bottom of the screen. The main screen is split with player camera above and HUD camera below.");
 
+		_row += LINE_Y;
+
+		addMenuItem("Camera Scroll", () ->
+		{
+			FlxG.switchState(new CameraScrollState());
+		},
+			"A camera which can move over the world at the bottom of the screen. Use left and right arrows to scroll the HUD camera over the HUD elements at the bottom of the screen.");
+
+		_row += LINE_Y;
+
+		addMenuItem("Masked Camera", () ->
+		{
+			FlxG.switchState(new ShapedCameraState());
+		},
+			"A camera which shows content inside a shape other than simple rectangular camera viewport.");
+
 		_row += 2 * LINE_Y;
 
 		add(new FlxText(LEFT_X, _row, "Hit <ESC> to return to this menu from the demo", BASE_FONT_SIZE));
+
+		trace('created menu state');
 	}
 
 	/**
