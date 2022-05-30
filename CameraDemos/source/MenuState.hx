@@ -67,13 +67,13 @@ class MenuState extends FlxState
 
 		_row += LINE_Y;
 
-		addMenuItem("Masked Camera", () ->
-		{
-			FlxG.switchState(new ShapedCameraState());
-		},
-			"A camera which shows content inside a shape other than simple rectangular camera viewport.");
+		// addMenuItem("Masked Camera", () ->
+		// {
+		// 	FlxG.switchState(new ShapedCameraState());
+		// },
+		// 	"A camera which shows content inside a shape other than simple rectangular camera viewport.");
 
-		_row += 2 * LINE_Y;
+		// _row += 2 * LINE_Y;
 
 		add(new FlxText(LEFT_X, _row, "Hit <ESC> to return to this menu from the demo", BASE_FONT_SIZE));
 
